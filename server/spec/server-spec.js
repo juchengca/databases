@@ -16,7 +16,7 @@ describe('Persistent Node Chat Server', () => {
   beforeAll((done) => {
     dbConnection.connect();
 
-       const tablename = ''; // TODO: fill this out
+       const tablename = 'messages'; // TODO: fill this out
 
     /* Empty the db table before all tests so that multiple tests
      * (or repeated runs of the tests)  will not fail when they should be passing
@@ -46,11 +46,12 @@ describe('Persistent Node Chat Server', () => {
         const queryString = 'SELECT * FROM messages';
         const queryArgs = [];
 
-        dbConnection.query(queryString, queryArgs, (err, results) => {
+        dbConnection.query(queryString, (err, results) => {
           if (err) {
             throw err;
           }
           // Should have one result:
+          console.log(results,'test')
           expect(results.length).toEqual(1);
 
           // TODO: If you don't have a column named text, change this test.
