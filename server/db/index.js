@@ -1,4 +1,5 @@
-var mysql = require('mysql2');
+//var mysql = require('mysql2');
+var Sequelize = require('sequelize');
 
 // Create a database connection and export it from this file.
 // Confirm that the credentials supplied for the connection are correct.
@@ -9,14 +10,27 @@ var mysql = require('mysql2');
 // OR
 // user: 'root', password: 'some_password_you_created_at_install'
 
-var con = mysql.createConnection({
-  user: 'root',
-  password: ''
+var db = new Sequelize('chat', 'root', '', {
+  dialect: 'mysql',
+  host: 'localhost',
 });
 
-con.connect(function(err) {
-  if (err) {
-    throw err;
-  }
-  console.log('Connected!');
-});
+// var con = mysql.createConnection({
+//   user: 'root',
+//   password: ''
+// });
+
+// con.connect(function(err) {
+//   if (err) {
+//     throw err;
+//   }
+//   console.log('Connected!');
+// });
+
+
+
+
+
+
+
+module.exports.db;

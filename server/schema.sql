@@ -4,17 +4,23 @@ USE chat;
 
 CREATE TABLE messages (
   /* Describe your table here.*/
+  id INT NOT NULL AUTO_INCREMENT,
   username varchar(255),
   text varchar(255),
-  roomname varchar(255)
-  -- message_id int,
-  -- createdAt DATE,
+  roomname varchar(255),
+  createdAt DATE,
+  updatedAt DATE,
+  Primary key(id)
 );
 
 /* Create other tables and define schemas for them here! */
 
 CREATE TABLE users (
-  username varchar(255)
+  id INT NOT NULL AUTO_INCREMENT,
+  username varchar(255),
+  createdAt DATE,
+  updatedAt DATE,
+  Primary key(id)
 );
 
 
